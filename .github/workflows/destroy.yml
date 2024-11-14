@@ -29,11 +29,10 @@ jobs:
         terraform_version: "1.9.3"
 
     - name: Setup terraform variables
-      id: vars
       run: |-
         cat > terraform.tfvars <<EOF
-        region="${{ vars.GCP_REGION }}" 
-        project_id="${{ vars.GCP_PROJECT }}" 
+        region="${{ secrets.GCP_REGION }}" 
+        project_id="${{ secrets.GCP_PROJECT }}" 
         EOF
         
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
