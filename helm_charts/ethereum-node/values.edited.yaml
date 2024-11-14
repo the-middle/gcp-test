@@ -1,0 +1,46 @@
+global:
+  main:
+    network: sepolia
+  clientArgs:
+    networks:
+      sepolia:
+        execution:
+          geth:
+            - --sepolia
+        consensus:
+          lighthouse:
+            - --network=sepolia
+
+geth:
+  enabled: true
+  p2pNodePort:
+    # -- Expose P2P port via NodePort
+    enabled: true
+    # -- NodePort to be used
+    port: 30303
+  serviceMonitor:
+    enabled: true
+    namespace: monitoring
+    labels:
+      release: kube-prometheus-stack
+
+lighthouse:
+  enabled: true
+  p2pNodePort:
+    # -- Expose P2P port via NodePort
+    enabled: true
+    # -- NodePort to be used
+    port: 31000
+  serviceMonitor:
+    enabled: true
+    namespace: monitoring
+    labels:
+      release: kube-prometheus-stack
+
+ethereum-metrics-exporter:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    namespace: monitoring
+    labels:
+      release: kube-prometheus-stack

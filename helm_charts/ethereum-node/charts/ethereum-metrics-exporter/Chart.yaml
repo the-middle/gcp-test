@@ -1,0 +1,9 @@
+apiVersion: v2
+description: A Prometheus metrics exporter for Ethereum consensus & execution nodes
+home: https://github.com/samcm/ethereum-metrics-exporter
+maintainers:
+- email: sam.calder-mason@ethereum.org
+  name: samcm
+name: ethereum-metrics-exporter
+type: application
+version: 0.2.0

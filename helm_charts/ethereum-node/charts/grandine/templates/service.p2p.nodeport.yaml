@@ -1,0 +1,28 @@
+{{- if .Values.p2pNodePort.enabled -}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "grandine.fullname" $ }}-p2p-0
+  labels:
+    {{- include "grandine.labels" $ | nindent 4 }}
+    pod: {{ include "grandine.fullname" $ }}-0
+    type: p2p
+spec:
+  type: NodePort
+  externalTrafficPolicy: Local
+  ports:
+    - name: p2p-tcp
+      port: {{ include "grandine.p2pPort" $ }}
+      protocol: TCP
+      targetPort: p2p-tcp
+      nodePort: {{ include "grandine.p2pPort" $ }}
+    - name: p2p-udp
+      port: {{ include "grandine.p2pPort" $ }}
+      protocol: UDP
+      targetPort: p2p-udp
+      nodePort: {{ include "grandine.p2pPort" $ }}
+  selector:
+    {{- include "grandine.selectorLabels" $ | nindent 4 }}
+    statefulset.kubernetes.io/pod-name: "{{ include "grandine.fullname" $ }}-0"
+{{- end }}

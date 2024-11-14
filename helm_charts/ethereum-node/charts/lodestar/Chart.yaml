@@ -1,0 +1,15 @@
+apiVersion: v2
+description: Lodestar is a open-source TypeScript implementation of the Ethereum consensus
+  engine.
+home: https://lodestar.chainsafe.io/
+icon: https://raw.githubusercontent.com/ChainSafe/lodestar/master/assets/lodestar_icon_300.png
+maintainers:
+- email: rafael@skyle.net
+  name: skylenet
+- email: busa.barnabas@gmail.com
+  name: barnabasbusa
+name: lodestar
+sources:
+- https://github.com/ChainSafe/lodestar
+type: application
+version: 1.1.3

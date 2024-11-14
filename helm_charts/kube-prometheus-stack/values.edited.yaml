@@ -1,0 +1,18 @@
+defaultRules:
+  create: false
+
+alertmanager:
+
+  ## Deploy alertmanager
+  ##
+  enabled: false
+
+prometheus-windows-exporter:
+  prometheus:
+    monitor:
+      enabled: false
+
+grafana:
+  enabled: true
+
+cleanPrometheusOperatorObjectNames: true
